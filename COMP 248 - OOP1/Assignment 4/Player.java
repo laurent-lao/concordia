@@ -62,7 +62,7 @@ public class Player {
         }
         else
         {
-            System.out.println("Incorrect spot for tree");
+            System.out.println("Incorrect spot for tree. Try again.");
             return false;
         }
     }
@@ -77,7 +77,7 @@ public class Player {
         }
         else
         {
-            System.out.println("Incorrect spot for flower");
+            System.out.println("Incorrect spot for flower. Try again.");
             return false;
         }
     }
@@ -109,13 +109,51 @@ public class Player {
     // Checks if Spot is correct
     public boolean correctSpot(int r, int c, String type)
     {
+        boolean correctBounds;
+        boolean emptySpot = false;
+        String errorStart = "\n\t\t\t\t\t***ERROR***\n---------------------------------------------------------";
+        String errorEnd = "---------------------------------------------------------\n";
+
         if (type.equals("tree"))
         {
-            return (garden.correctBoundsForTrees(r, c) && garden.correctSpotForTrees(r, c));
+
+            if (!(correctBounds = garden.correctBoundsForTrees(r, c)))
+            {
+                System.out.println(errorStart);
+                System.out.println("A tree cannot be planted here (location out of bounds).");
+                System.out.println(errorEnd);
+            }
+
+            // empty spot check has to be executed only after correctBounds are checked to prevent out of bounds
+            else if(!(emptySpot = garden.correctSpotForTrees(r, c)))
+            {
+                System.out.println(errorStart);
+                System.out.println("A tree cannot be planted here (location not empty)");
+                garden.printBadLocation_Tree(r, c);
+                System.out.println(errorEnd);
+            }
+
+            return (correctBounds && emptySpot);
         }
         else if (type.equals("flower"))
         {
-            return (garden.correctBounds(r, c) && garden.correctSpotForFlower(r, c));
+            if (!(correctBounds = garden.correctBounds(r, c)))
+            {
+                System.out.println(errorStart);
+                System.out.println("A flower cannot be planted here (location out of bounds).");
+                System.out.println(errorEnd);
+            }
+
+            // empty spot check has to be executed only after correctBounds are checked to prevent out of bounds
+            else if(!(emptySpot = garden.correctSpotForFlower(r, c)))
+            {
+                System.out.println(errorStart);
+                System.out.println("A flower cannot be planted here (location not empty)");
+                garden.printBadLocation_Flower(r, c);
+                System.out.println(errorEnd);
+            }
+
+            return (correctBounds && emptySpot);
         }
         else
         {

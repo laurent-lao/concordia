@@ -22,6 +22,7 @@ public class LetsPlay {
         boolean gameIsWon = false;                          // Boolean check to see if someone won the game
         int winningPlayer = -1;                             // Will store the index of the winning player
         int roundCounter = 0;                               // Keeps track of the number of rounds
+        boolean firstRun = true;
 
         // Welcome message and rules
         gameIntro();
@@ -65,7 +66,8 @@ public class LetsPlay {
                 System.out.println("\n" + turnMessage);
                 printLine(turnMessage);
 
-                gameWaitForReturn(otherInput);
+                gameWaitForReturn(otherInput, firstRun);
+                firstRun = false;
 
                 // Rolling the dice and translate the outcome into a (0 to 5) number
                 int outcome = diceToOutcome(rollingDice(player[i].getName()));
@@ -98,9 +100,15 @@ public class LetsPlay {
      * Helps control the flow of the game
      * @param enterInput      hook for a Scanner object to allow user input
      */
-    public static void gameWaitForReturn(Scanner enterInput)
+    public static void gameWaitForReturn(Scanner enterInput, boolean firstRun)
     {
-        System.out.print("Press Enter to Continue...");
+        if (firstRun)
+        {
+            System.out.print("Press Enter to Continue... (Might have to do it twice)");
+        }
+        else
+            System.out.print("Press Enter to Continue...");
+
         enterInput.nextLine();
     }
 
@@ -338,7 +346,7 @@ public class LetsPlay {
                     if (diceRoll[j] == diceRoll[i])
                     {
                         isTied = true;
-                        System.out.println("We will start over as " + diceRoll[i] + " was rolled by " + unordered[j].getName() + " as well.");
+                        System.out.println("\nWe will start over as " + diceRoll[i] + " was rolled by " + unordered[j].getName() + " as well.\n");
                         break;
                     }
                 }
@@ -546,7 +554,7 @@ public class LetsPlay {
             // Tree planting message + number of Spots
             if (player.howManyTreesPossible() == 0)
             {
-                System.out.println("Sorry no room to plant a tree!\n");
+                System.out.println("Sorry no room left to plant a tree!\n");
                 break;
             }
             else {
@@ -611,6 +619,7 @@ public class LetsPlay {
 
             // If the game is won, return true to exit method
             if (player.isGardenFull()) {
+                System.out.println("... and won!!\n");
                 plantingResult = true;
                 return plantingResult;
             }
@@ -647,6 +656,7 @@ public class LetsPlay {
             {
                 String garbage = keyInput.next();
                 garbage = keyInput.next();
+                garbage = null;
                 isCorrect = false;
                 System.out.println(wrongInputs);
                 continue;
@@ -656,6 +666,7 @@ public class LetsPlay {
             else
             {
                 String garbage = keyInput.next();
+                garbage = null;
                 isCorrect = false;
                 System.out.println(wrongInputs);
                 continue;

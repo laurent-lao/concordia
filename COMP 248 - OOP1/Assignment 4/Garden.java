@@ -34,7 +34,7 @@ public class Garden {
         return garden[r][c];
     }
 
-    // Get the default size
+    // Get the default size (static so that there's no need to create an object to access the attribute)
     public static int getDefaultSize() {
 
         return defaultSize;
@@ -174,6 +174,33 @@ public class Garden {
         }
 
         return true;
+    }
+
+    // Prints what's preventing the tree to be planted
+    public void printBadLocation_Tree(int r, int c)
+    {
+        int [][] treeCoordinates = {{r, c}, {r, c + 1}, {r + 1, c}, {r + 1, c + 1}};
+        char [] charAtLocation =
+                {       getInLocation(treeCoordinates[0][0], treeCoordinates[0][1]),
+                        getInLocation(treeCoordinates[1][0], treeCoordinates[1][1]),
+                        getInLocation(treeCoordinates[2][0], treeCoordinates[2][1]),
+                        getInLocation(treeCoordinates[3][0], treeCoordinates[3][1]),
+                };
+
+        for (int i = 0; i < treeCoordinates.length; i++)
+        {
+            if (charAtLocation[i] != '-')
+            {
+                System.out.println("There is already a \"" + charAtLocation[i] + "\" at location (" + treeCoordinates[i][0] + "," + treeCoordinates[i][1] + ").");
+            }
+        }
+
+    }
+
+    // Prints what's preventing the flower to be planted
+    public void printBadLocation_Flower(int r, int c)
+    {
+        System.out.println("There is already a \"" + getInLocation(r, c) + "\" at location (" + r + "," + c + ").");
     }
 
     // Prints the Garden
