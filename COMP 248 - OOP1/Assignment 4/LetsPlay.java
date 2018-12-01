@@ -22,7 +22,7 @@ public class LetsPlay {
         boolean gameIsWon = false;                          // Boolean check to see if someone won the game
         int winningPlayer = -1;                             // Will store the index of the winning player
         int roundCounter = 0;                               // Keeps track of the number of rounds
-        boolean firstRun = true;
+        boolean firstRun = true;                            // Keeps track if it's the first run or not
 
         // Welcome message and rules
         gameIntro();
