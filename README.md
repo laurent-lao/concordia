@@ -17,5 +17,10 @@ My school assignments source codes are listed here for quick reference.
 			* [Repo of Assignment 2 Part 1](https://github.com/laurentlaurent/COMP-249-A2-1-PublicTransport_Less)
 		* Copy without polymorphism
 			* [Repo of Assignment 2 Part 2](https://github.com/laurentlaurent/COMP-249-A2-1-PublicTransport_More)
-	* Data Parsing, writing to files, exception handling
+	* Data Parsing, File I/O, exception handling
 		* [Repo of Assignment 3](https://github.com/laurentlaurent/COMP-249-A3-AuthorBibCreator)
+	* File I/O, ArrayList, Linked Lists
+		* Array List
+			* [Repo of Assignment 4 Part 1](https://github.com/laurentlaurent/COMP-249-A4-Sub-Dictionary-Creator)
+		* Linked List
+			* [Repo of Assignment 4 Part 2](https://github.com/laurentlaurent/COMP-249-A4-Linked-Lists)
