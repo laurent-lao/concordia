@@ -24,3 +24,8 @@ My school assignments source codes are listed here for quick reference.
 			* [Repo of Assignment 4 Part 1](https://github.com/laurentlaurent/COMP-249-A4-Sub-Dictionary-Creator)
 		* Linked List
 			* [Repo of Assignment 4 Part 2](https://github.com/laurentlaurent/COMP-249-A4-Linked-Lists)
+* COMP 348 (Fundamentals of Programming)
+	* [Lisp Assignment](https://github.com/laurentlaurent/COMP348-Lisp-Assignment)
+* COMP 346 (Operating Systems)
+	* Threads
+		* [Assignment 1](https://github.com/laurentlaurent/COMP-346-A1-Threads)
