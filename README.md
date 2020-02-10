@@ -29,3 +29,9 @@ My school assignments source codes are listed here for quick reference.
 * COMP 346 (Operating Systems)
 	* Threads
 		* [Assignment 1](https://github.com/laurentlaurent/COMP-346-A1-Threads)
+* SOEN 331 (Formal Methods)
+	* Object-Z specifications
+		* [Assignment 1](https://github.com/laurentlaurent/soen-331-assignment-1)
+* SOEN 341 (Software Process)
+	* Building an instagram-lite
+		* [ShutterFeed](https://github.com/CamilBouzidi/-ShutterFeed-a-SOEN-341-Repo)
